@@ -2,27 +2,38 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Scrolls of Wild Rose</title>
+  <title>📚 Scrolls of Wild Rose</title>
   <style>
     body {
-      background-color: #fefbf6;
+      background-color: #fefafe;
       font-family: 'Georgia', serif;
       text-align: center;
       padding: 30px;
-      color: #3e2f2c;
+      color: #4c2c4c;
     }
 
     h1 {
-      font-size: 2.5em;
-      margin-bottom: 10px;
+      font-size: 2.8em;
+      margin-bottom: 5px;
     }
 
     .shelf {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 20px;
+      gap: 25px;
       margin-top: 40px;
+    }
+
+    .shelf div {
+      text-align: center;
+      width: 140px;
+    }
+
+    .shelf p {
+      margin-top: 8px;
+      font-size: 0.95em;
+      color: #5e3c5e;
     }
 
     .book {
@@ -32,7 +43,7 @@
       border-radius: 8px;
       cursor: pointer;
       transition: transform 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+      box-shadow: 0 4px 12px rgba(80, 20, 80, 0.2);
     }
 
     .book:hover {
@@ -47,10 +58,15 @@
       transform: translate(-50%, -50%);
       width: 85%;
       max-width: 600px;
-      padding: 40px;
+      padding: 40px 30px;
       border-radius: 20px;
       box-shadow: 0 0 20px rgba(0,0,0,0.3);
       z-index: 10;
+      font-size: 1.15em;
+      background: linear-gradient(to bottom right, #e8d4f3, #f5ebff);
+      border: 5px double #b690d9;
+      color: #3a2446;
+      font-style: italic;
     }
 
     .scroll-popup .close-btn {
@@ -59,46 +75,37 @@
       right: 20px;
       font-size: 1.5em;
       cursor: pointer;
-    }
-
-    /* Individual Book Themes */
-
-    #reaper {
-      background: linear-gradient(135deg, #1a1a1a, #333);
-      color: #e0e0e0;
-      border: 4px solid #555;
-      font-style: italic;
-    }
-
-    #nightfall {
-      background: linear-gradient(135deg, #3c0202, #000000);
-      color: #ffcccb;
-      border: 4px double crimson;
-      font-family: 'Courier New', monospace;
+      color: #693c8c;
     }
 
   </style>
 </head>
 <body>
   <h1>📜 Scrolls of Wild Rose 📜</h1>
-  <p>Click a book to reveal what the stars already wrote about you…</p>
+  <p style="font-size:1.2em;">Click a book to reveal the truth the stars wrote about you… 🌌📖</p>
 
   <div class="shelf">
-    <img src="https://i.imgur.com/xIVl0sP.jpeg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
-    <img src="https://i.imgur.com/zqgQeDo.jpeg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
+    <div>
+      <img src="https://i.imgur.com/xIVl0sP.jpeg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
+      <p><strong>🖤 The Reaper</strong><br><em>(Dark Verse #2)</em></p>
+    </div>
+    <div>
+      <img src="https://i.imgur.com/zqgQeDo.jpeg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
+      <p><strong>🔥 Nightfall</strong><br><em>(Devil’s Night #4)</em></p>
+    </div>
   </div>
 
   <!-- Scroll Popups -->
   <div id="reaper" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
-    <h2><em>The Reaper</em></h2>
-    <p>She is the one who watches over others when no one’s looking. Quiet. Loyal. Strong. A protector, not with weapons — but with presence.</p>
+    <h2><em>🖤 The Reaper</em></h2>
+    <p>She is the one who watches over others when no one’s looking. 🫶 Quiet. Loyal. Strong. A protector, not with weapons — but with presence.</p>
   </div>
 
   <div id="nightfall" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
-    <h2><em>Nightfall</em></h2>
-    <p>She’s fire in a world that keeps asking women to be small. She speaks when it matters, stands when others flee, and never apologizes for burning bright.</p>
+    <h2><em>🔥 Nightfall</em></h2>
+    <p>She’s fire in a world that keeps asking women to be small. 🔥 She speaks when it matters, stands when others flee, and never apologizes for burning bright. 💃</p>
   </div>
 
   <script>
