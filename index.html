@@ -6,7 +6,7 @@
   <style>
     body {
       margin: 0;
-      background-image: url('https://i.imgur.com/VBGCxOO.jpg'); /* parchment textured bg */
+      background-image: url('https://i.imgur.com/VBGCxOO.jpg'); /* Parchment background */
       background-size: cover;
       background-attachment: fixed;
       font-family: 'Georgia', serif;
@@ -52,9 +52,9 @@
     .title {
       font-size: 0.95em;
       margin-top: 10px;
+      color: #4d2e2e;
     }
 
-    /* Popup scroll base */
     .scroll-popup {
       display: none;
       position: fixed;
@@ -65,7 +65,7 @@
       max-width: 700px;
       z-index: 10;
       padding: 40px;
-      background-image: url('https://i.imgur.com/LwrmhF1.png'); /* parchment scroll image */
+      background-image: url('https://i.imgur.com/LwrmhF1.png'); /* Scroll texture */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -73,6 +73,7 @@
       font-size: 1.1em;
       font-style: italic;
       box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      border-radius: 20px;
     }
 
     .scroll-popup .close-btn {
@@ -83,7 +84,6 @@
       color: #5c3c2d;
       cursor: pointer;
     }
-
   </style>
 </head>
 <body>
@@ -92,16 +92,29 @@
 
   <div class="shelf">
     <div>
-      <img src="https://m.media-amazon.com/images/I/51Ck3Y-YrBL.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
+      <img src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO/main/the-reaper.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
+      <!-- 👆 Replace the URL above with the actual raw GitHub URL after uploading your image -->
       <p class="title">🖤 <strong>The Reaper</strong><br><em>(Dark Verse #2)</em></p>
     </div>
+
     <div>
-      <img src="https://m.media-amazon.com/images/I/71Sw3V+6m3L.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
+      <img src="https://i.imgur.com/oduh6wh.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
       <p class="title">🔥 <strong>Nightfall</strong><br><em>(Devil’s Night #4)</em></p>
     </div>
   </div>
 
-  <!-- Placeholder for future scroll popups -->
+  <!-- 📜 Scroll Messages -->
+  <div id="reaper" class="scroll-popup">
+    <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
+    <h2>🖤 The Reaper</h2>
+    <p>She is the one who watches over others when no one’s looking. 🫶 Quiet. Loyal. Strong. A protector, not with weapons — but with presence.</p>
+  </div>
+
+  <div id="nightfall" class="scroll-popup">
+    <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
+    <h2>🔥 Nightfall</h2>
+    <p>She’s fire in a world that keeps asking women to be small. 🔥 She speaks when it matters, stands when others flee, and never apologizes for burning bright. 💃</p>
+  </div>
 
   <script>
     function showScroll(id) {
@@ -113,4 +126,3 @@
   </script>
 </body>
 </html>
-
