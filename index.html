@@ -58,7 +58,7 @@
     .glow-twisted   { box-shadow: 0 0 20px 4px green; }
     .glow-imagine   { box-shadow: 0 0 20px 4px teal; }
 
-    /* Popup Styles */
+    /* Scroll popup */
     .scroll-popup {
       display: none;
       position: fixed;
@@ -91,93 +91,90 @@
       cursor: pointer;
       z-index: 20;
     }
+
+    /* Lock animation */
+    .lock-screen {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 9;
+      font-size: 4em;
+      color: #fff;
+      animation: unlock 1.2s ease-in-out;
+    }
+
+    @keyframes unlock {
+      0%   { transform: translate(-50%, -50%) rotate(0deg); opacity: 0; }
+      50%  { transform: translate(-50%, -50%) rotate(15deg); opacity: 1; }
+      100% { transform: translate(-50%, -50%) rotate(0deg); opacity: 0; }
+    }
   </style>
 </head>
 <body>
   <h1>📖🌹 The Secret Library of Wild Rose — Only She Holds the Key ✨🔐</h1>
   <p class="subtitle">📜 The words won't speak to anyone else... they were written in her name. 🕯️🌹</p>
 
-  <!-- Book: The Reaper -->
+  <!-- LOCK ICON -->
+  <div id="lock" class="lock-screen">🔓</div>
+
+  <!-- Book Rows -->
   <div class="book-row">
-    <img src="the-reaper.jpg" class="book glow-reaper" onclick="showScroll('reaper')">
+    <img src="the-reaper.jpg" class="book glow-reaper" onclick="openScrollWithLock('reaper')">
     <p class="title">🖤 The Reaper</p>
   </div>
 
-  <!-- Book: Nightfall -->
   <div class="book-row">
-    <img src="Nightfall.jpg" class="book glow-nightfall" onclick="showScroll('nightfall')">
+    <img src="Nightfall.jpg" class="book glow-nightfall" onclick="openScrollWithLock('nightfall')">
     <p class="title">🔥 Nightfall</p>
   </div>
 
-  <!-- Book: Kingdom of Ash -->
   <div class="book-row">
-    <img src="Kingdom of Ash Cover.jpeg" class="book glow-koa" onclick="showScroll('koa')">
+    <img src="Kingdom of Ash Cover.jpeg" class="book glow-koa" onclick="openScrollWithLock('koa')">
     <p class="title">👑 Kingdom of Ash</p>
   </div>
 
-  <!-- Book: God of Wrath -->
   <div class="book-row">
-    <img src="God of wrath.jpg" class="book glow-gowrath" onclick="showScroll('gowrath')">
+    <img src="God of wrath.jpg" class="book glow-gowrath" onclick="openScrollWithLock('gowrath')">
     <p class="title">⚔️ God of Wrath</p>
   </div>
 
-  <!-- Book: God of Ruin -->
   <div class="book-row">
-    <img src="God of ruin.jpg" class="book glow-goruin" onclick="showScroll('goruin')">
+    <img src="God of ruin.jpg" class="book glow-goruin" onclick="openScrollWithLock('goruin')">
     <p class="title">💥 God of Ruin</p>
   </div>
 
-  <!-- Book: Twisted Lies -->
   <div class="book-row">
-    <img src="Twisted lies.jpg" class="book glow-twisted" onclick="showScroll('twisted')">
+    <img src="Twisted lies.jpg" class="book glow-twisted" onclick="openScrollWithLock('twisted')">
     <p class="title">💚 Twisted Lies</p>
   </div>
 
-  <!-- Book: Imagine Me -->
   <div class="book-row">
-    <img src="Imagine me.jpg" class="book glow-imagine" onclick="showScroll('imagine')">
+    <img src="Imagine me.jpg" class="book glow-imagine" onclick="openScrollWithLock('imagine')">
     <p class="title">✨ Imagine Me</p>
   </div>
 
   <!-- Scroll Popups -->
-  <div id="reaper" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
-    <img src="scroll-reaper.png.jpeg" alt="Scroll Image" />
-  </div>
-
-  <div id="nightfall" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
-    <img src="scroll-nightfall.png.jpeg" alt="Scroll Image" />
-  </div>
-
-  <div id="koa" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('koa')">&times;</span>
-    <img src="scroll-koa.png.jpeg" alt="Scroll Image" />
-  </div>
-
-  <div id="gowrath" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('gowrath')">&times;</span>
-    <img src="scroll-gowrath.png.jpeg" alt="Scroll Image" />
-  </div>
-
-  <div id="goruin" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('goruin')">&times;</span>
-    <img src="scroll-goruin.png.jpeg" alt="Scroll Image" />
-  </div>
-
-  <div id="twisted" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('twisted')">&times;</span>
-    <img src="scroll-twisted.png.jpeg" alt="Scroll Image" />
-  </div>
-
-  <div id="imagine" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('imagine')">&times;</span>
-    <img src="scroll-imagine.png.jpeg" alt="Scroll Image" />
-  </div>
+  <div id="reaper" class="scroll-popup"><span class="close-btn" onclick="hideScroll('reaper')">&times;</span><img src="scroll-reaper.png.jpeg" /></div>
+  <div id="nightfall" class="scroll-popup"><span class="close-btn" onclick="hideScroll('nightfall')">&times;</span><img src="scroll-nightfall.png.jpeg" /></div>
+  <div id="koa" class="scroll-popup"><span class="close-btn" onclick="hideScroll('koa')">&times;</span><img src="scroll-koa.png.jpeg" /></div>
+  <div id="gowrath" class="scroll-popup"><span class="close-btn" onclick="hideScroll('gowrath')">&times;</span><img src="scroll-gowrath.png.jpeg" /></div>
+  <div id="goruin" class="scroll-popup"><span class="close-btn" onclick="hideScroll('goruin')">&times;</span><img src="scroll-goruin.png.jpeg" /></div>
+  <div id="twisted" class="scroll-popup"><span class="close-btn" onclick="hideScroll('twisted')">&times;</span><img src="scroll-twisted.png.jpeg" /></div>
+  <div id="imagine" class="scroll-popup"><span class="close-btn" onclick="hideScroll('imagine')">&times;</span><img src="scroll-imagine.png.jpeg" /></div>
 
   <script>
-    function showScroll(id) {
-      document.getElementById(id).style.display = 'flex';
+    function openScrollWithLock(id) {
+      const lock = document.getElementById("lock");
+      const popup = document.getElementById(id);
+
+      lock.style.display = "block";
+
+      setTimeout(() => {
+        lock.style.display = "none";
+        popup.style.display = "flex";
+      }, 1200);
     }
 
     function hideScroll(id) {
