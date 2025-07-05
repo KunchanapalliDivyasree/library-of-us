@@ -6,7 +6,7 @@
   <style>
     body {
       margin: 0;
-      background-image: url('https://i.imgur.com/VBGCxOO.jpg'); /* Parchment background */
+      background-image: url('https://i.imgur.com/VBGCxOO.jpg'); /* parchment bg */
       background-size: cover;
       background-attachment: fixed;
       font-family: 'Georgia', serif;
@@ -65,7 +65,7 @@
       max-width: 700px;
       z-index: 10;
       padding: 40px;
-      background-image: url('https://i.imgur.com/LwrmhF1.png'); /* Scroll texture */
+      background-image: url('https://i.imgur.com/LwrmhF1.png'); /* scroll texture */
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -87,22 +87,24 @@
   </style>
 </head>
 <body>
-  <h1>📜 Scrolls of Wild Rose 📜</h1>
+  <h1>📚 Scrolls of Wild Rose 📚</h1>
   <p style="font-size:1.2em;">Click a book to read what fate already wrote about you... 🕯️</p>
 
   <div class="shelf">
     <div>
       <img src="https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/the-reaper.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
+      <!-- 👆 Replace with your real GitHub raw link -->
       <p class="title">🖤 <strong>The Reaper</strong><br><em>(Dark Verse #2)</em></p>
     </div>
 
     <div>
-      <img src="https://i.imgur.com/oduh6wh.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
-      <p class="title">🔥 <strong>Nightfall</strong><br><em>(Devil’s Night #4)</em></p>
+      <img src="https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/Nightfall.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
+      <!-- 👆 Replace with your real GitHub raw link -->
+      <p class="title">🔥 <strong>Nightfall</strong><br><em>(Devil's Night #4)</em></p>
     </div>
   </div>
 
-  <!-- 📜 Scroll Messages -->
+  <!-- Scroll Popups -->
   <div id="reaper" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
     <h2>🖤 The Reaper</h2>
@@ -112,7 +114,7 @@
   <div id="nightfall" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
     <h2>🔥 Nightfall</h2>
-    <p>She’s fire in a world that keeps asking women to be small. 🔥 She speaks when it matters, stands when others flee, and never apologizes for burning bright. 💃</p>
+    <p>In the dark corners of rebellion, she walks with purpose. Her silence holds power, her heart holds storms, and her loyalty burns brighter than any fire. Asma, you are the calm and the chaos. 🖤🔥</p>
   </div>
 
   <script>
