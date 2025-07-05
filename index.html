@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>Scrolls of Wild Rose 🌹</title>
   <style>
     body {
       margin: 0;
-      background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/baground.jpeg'); /* Your custom background */
+      background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/baground.jpeg'); /* Your background */
       background-size: cover;
       background-attachment: fixed;
       font-family: 'Georgia', serif;
@@ -61,49 +61,62 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 90%;
-      max-width: 700px;
       z-index: 10;
-      padding: 40px;
-      background-color: #fff8ec;
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      color: #3b2a1a;
-      font-size: 1.1em;
-      font-style: italic;
-      box-shadow: 0 0 20px rgba(0,0,0,0.4);
+      padding: 0;
       border-radius: 20px;
     }
 
     .scroll-popup .close-btn {
       position: absolute;
-      top: 20px;
-      right: 40px;
+      top: 10px;
+      right: 20px;
       font-size: 1.8em;
-      color: #5c3c2d;
+      color: #fff;
       cursor: pointer;
+      z-index: 20;
     }
 
-    /* 🎯 Special scroll style for The Reaper */
-#reaper {
-  background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/reaper-scroll.png');
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-color: transparent;
-  color: #eae6f8;
-  font-style: italic;
-  font-weight: 500;
-  padding: 100px 60px; /* creates spacing inside the scroll */
-  border-radius: 30px;
-  box-shadow: 0 0 25px rgba(80, 0, 150, 0.6);
-  max-width: 600px;
-  height: auto;
-  background-origin: content-box;
-  background-clip: padding-box;
-  overflow: hidden;
-}
+    /* 🖤 The Reaper - custom scroll style */
+    #reaper {
+      background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/reaper-scroll.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 600px;
+      height: 450px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      box-shadow: 0 0 25px rgba(80, 0, 150, 0.6);
+    }
+
+    #reaper .scroll-text {
+      max-width: 80%;
+      text-align: center;
+      padding: 20px;
+      line-height: 1.6;
+      color: #f6edff;
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.1em;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 12px;
+      z-index: 5;
+    }
+
+    /* 📱 Responsive */
+    @media (max-width: 650px) {
+      #reaper {
+        width: 90vw;
+        height: auto;
+        padding: 20px;
+      }
+
+      #reaper .scroll-text {
+        font-size: 1em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -117,37 +130,46 @@
       <p class="title">🖤 <strong>The Reaper</strong><br><em>(Dark Verse #2)</em></p>
     </div>
 
-    <!-- 🔥 Nightfall -->
+    <!-- 🔥 Nightfall (optional - will style next) -->
     <div>
       <img src="https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/Nightfall.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
       <p class="title">🔥 <strong>Nightfall</strong><br><em>(Devil's Night #4)</em></p>
     </div>
   </div>
 
-  <!-- 🖤 The Reaper Scroll -->
+  <!-- 🖤 Scroll Popup for The Reaper -->
   <div id="reaper" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
-    <h2>🖤 The Reaper</h2>
-    <p>She is the one who watches over others when no one’s looking. 🫶  
-    Quiet. Loyal. Strong.  
-    A protector — not with weapons, but with presence.  
-    Asma, you are the storm’s calm and its soul. ⚡</p>
+    <div class="scroll-text">
+      <h2>🖤 The Reaper</h2>
+      <p>
+        She is the one who watches over others when no one’s looking. 🫶<br>
+        Quiet. Loyal. Strong.<br>
+        A protector — not with weapons, but with presence.<br>
+        Asma, you are the storm’s calm and its soul. ⚡
+      </p>
+    </div>
   </div>
 
-  <!-- 🔥 Nightfall Scroll (basic for now, we’ll style next) -->
+  <!-- 🔥 Scroll Popup for Nightfall (Basic for now) -->
   <div id="nightfall" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
-    <h2>🔥 Nightfall</h2>
-    <p>In the dark corners of rebellion, she walks with purpose.  
-    Her silence holds power. Her heart holds storms.  
-    Asma, you are the calm and the chaos. 🕯️</p>
+    <div class="scroll-text">
+      <h2>🔥 Nightfall</h2>
+      <p>
+        In the dark corners of rebellion, she walks with purpose.  
+        Her silence holds power. Her heart holds storms.  
+        Asma, you are the calm and the chaos. 🕯️
+      </p>
+    </div>
   </div>
 
-  <!-- 💡 Scroll script -->
+  <!-- ✨ Script to toggle scrolls -->
   <script>
     function showScroll(id) {
       document.getElementById(id).style.display = 'block';
     }
+
     function hideScroll(id) {
       document.getElementById(id).style.display = 'none';
     }
