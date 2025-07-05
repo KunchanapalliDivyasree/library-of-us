@@ -20,29 +20,23 @@
       text-shadow: 1px 1px 4px #fff3ea;
     }
 
-    p.description {
+    p.subtitle {
       font-size: 1.2em;
-      margin-bottom: 40px;
+      margin-bottom: 20px;
     }
 
     .book-row {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 40px;
-    }
-
-    .book-container {
-      text-align: center;
+      margin: 25px 0;
     }
 
     .book {
-      width: 150px;
-      height: 220px;
+      width: 130px;
+      height: 190px;
       object-fit: cover;
-      border-radius: 8px;
-      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
-      transition: transform 0.3s ease;
+      border-radius: 6px;
       cursor: pointer;
+      transition: transform 0.3s;
+      border: 2px solid #3b2a1a;
     }
 
     .book:hover {
@@ -50,10 +44,21 @@
     }
 
     .title {
-      margin-top: 10px;
       font-size: 1em;
+      color: #4d2e2e;
+      margin-top: 8px;
     }
 
+    /* Glow Effects */
+    .glow-reaper    { box-shadow: 0 0 20px 4px purple; }
+    .glow-nightfall { box-shadow: 0 0 20px 4px gray; }
+    .glow-koa       { box-shadow: 0 0 20px 4px goldenrod; }
+    .glow-gowrath   { box-shadow: 0 0 20px 4px crimson; }
+    .glow-goruin    { box-shadow: 0 0 20px 4px deepskyblue; }
+    .glow-twisted   { box-shadow: 0 0 20px 4px green; }
+    .glow-imagine   { box-shadow: 0 0 20px 4px teal; }
+
+    /* Popup Styles */
     .scroll-popup {
       display: none;
       position: fixed;
@@ -61,18 +66,20 @@
       left: 50%;
       transform: translate(-50%, -50%);
       z-index: 10;
+      padding: 0;
       border-radius: 20px;
-      width: 90vw;
-      max-width: 800px;
-      max-height: 90vh;
-      background: #000;
-      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+      width: 600px;
+      max-width: 90vw;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      justify-content: center;
+      align-items: center;
     }
 
     .scroll-popup img {
       width: 100%;
-      height: auto;
-      border-radius: 20px;
+      border-radius: 10px;
     }
 
     .close-btn {
@@ -80,116 +87,97 @@
       top: 10px;
       right: 20px;
       font-size: 1.8em;
-      color: white;
+      color: #fff;
       cursor: pointer;
       z-index: 20;
-    }
-
-    @media (max-width: 600px) {
-      .book {
-        width: 100px;
-        height: 150px;
-      }
-
-      .title {
-        font-size: 0.9em;
-      }
     }
   </style>
 </head>
 <body>
   <h1>📖🌹 The Secret Library of Wild Rose — Only She Holds the Key ✨🔐</h1>
-  <p class="description">📜 The words won't speak to anyone else... they were written in her name. 🕯️🌹</p>
+  <p class="subtitle">📜 The words won't speak to anyone else... they were written in her name. 🕯️🌹</p>
 
-  <!-- BOOK ROWS -->
+  <!-- Book: The Reaper -->
   <div class="book-row">
-    <div class="book-container">
-      <img src="the-reaper.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper" />
-      <p class="title">🖤 The Reaper</p>
-    </div>
+    <img src="the-reaper.jpg" class="book glow-reaper" onclick="showScroll('reaper')">
+    <p class="title">🖤 The Reaper</p>
   </div>
 
+  <!-- Book: Nightfall -->
   <div class="book-row">
-    <div class="book-container">
-      <img src="Nightfall.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall" />
-      <p class="title">🔥 Nightfall</p>
-    </div>
+    <img src="Nightfall.jpg" class="book glow-nightfall" onclick="showScroll('nightfall')">
+    <p class="title">🔥 Nightfall</p>
   </div>
 
+  <!-- Book: Kingdom of Ash -->
   <div class="book-row">
-    <div class="book-container">
-      <img src="Kingdom of Ash Cover.jpeg" class="book" onclick="showScroll('koa')" alt="Kingdom of Ash" />
-      <p class="title">👑 Kingdom of Ash</p>
-    </div>
+    <img src="Kingdom of Ash Cover.jpeg" class="book glow-koa" onclick="showScroll('koa')">
+    <p class="title">👑 Kingdom of Ash</p>
   </div>
 
+  <!-- Book: God of Wrath -->
   <div class="book-row">
-    <div class="book-container">
-      <img src="God of wrath.jpg" class="book" onclick="showScroll('gowrath')" alt="God of Wrath" />
-      <p class="title">⚔️ God of Wrath</p>
-    </div>
+    <img src="God of wrath.jpg" class="book glow-gowrath" onclick="showScroll('gowrath')">
+    <p class="title">⚔️ God of Wrath</p>
   </div>
 
+  <!-- Book: God of Ruin -->
   <div class="book-row">
-    <div class="book-container">
-      <img src="God of ruin.jpg" class="book" onclick="showScroll('goruin')" alt="God of Ruin" />
-      <p class="title">💥 God of Ruin</p>
-    </div>
+    <img src="God of ruin.jpg" class="book glow-goruin" onclick="showScroll('goruin')">
+    <p class="title">💥 God of Ruin</p>
   </div>
 
+  <!-- Book: Twisted Lies -->
   <div class="book-row">
-    <div class="book-container">
-      <img src="Twisted lies.jpg" class="book" onclick="showScroll('twisted')" alt="Twisted Lies" />
-      <p class="title">💚 Twisted Lies</p>
-    </div>
+    <img src="Twisted lies.jpg" class="book glow-twisted" onclick="showScroll('twisted')">
+    <p class="title">💚 Twisted Lies</p>
   </div>
 
+  <!-- Book: Imagine Me -->
   <div class="book-row">
-    <div class="book-container">
-      <img src="Imagine me.jpg" class="book" onclick="showScroll('imagine')" alt="Imagine Me" />
-      <p class="title">✨ Imagine Me</p>
-    </div>
+    <img src="Imagine me.jpg" class="book glow-imagine" onclick="showScroll('imagine')">
+    <p class="title">✨ Imagine Me</p>
   </div>
 
-  <!-- SCROLL POPUPS -->
+  <!-- Scroll Popups -->
   <div id="reaper" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
-    <img src="scroll-reaper.png" alt="Scroll for The Reaper" />
+    <img src="scroll-reaper.png.jpeg" alt="Scroll Image" />
   </div>
 
   <div id="nightfall" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
-    <img src="scroll-nightfall.png" alt="Scroll for Nightfall" />
+    <img src="scroll-nightfall.png.jpeg" alt="Scroll Image" />
   </div>
 
   <div id="koa" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('koa')">&times;</span>
-    <img src="scroll-koa.png" alt="Scroll for Kingdom of Ash" />
+    <img src="scroll-koa.png.jpeg" alt="Scroll Image" />
   </div>
 
   <div id="gowrath" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('gowrath')">&times;</span>
-    <img src="scroll-gowrath.png" alt="Scroll for God of Wrath" />
+    <img src="scroll-gowrath.png.jpeg" alt="Scroll Image" />
   </div>
 
   <div id="goruin" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('goruin')">&times;</span>
-    <img src="scroll-goruin.png" alt="Scroll for God of Ruin" />
+    <img src="scroll-goruin.png.jpeg" alt="Scroll Image" />
   </div>
 
   <div id="twisted" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('twisted')">&times;</span>
-    <img src="scroll-twisted.png" alt="Scroll for Twisted Lies" />
+    <img src="scroll-twisted.png.jpeg" alt="Scroll Image" />
   </div>
 
   <div id="imagine" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('imagine')">&times;</span>
-    <img src="scroll-imagine.png" alt="Scroll for Imagine Me" />
+    <img src="scroll-imagine.png.jpeg" alt="Scroll Image" />
   </div>
 
   <script>
     function showScroll(id) {
-      document.getElementById(id).style.display = 'block';
+      document.getElementById(id).style.display = 'flex';
     }
 
     function hideScroll(id) {
