@@ -86,19 +86,24 @@
     }
 
     /* 🎯 Special scroll style for The Reaper */
-    #reaper {
-    background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/reaper-scroll.png');
-/* replace with your actual scroll image */
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      color: #eae6f8;
-      font-style: italic;
-      font-weight: 500;
-      padding: 60px 40px;
-      border-radius: 30px;
-      box-shadow: 0 0 25px rgba(80,0,150,0.6);
-    }
+#reaper {
+  background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/reaper-scroll.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: transparent;
+  color: #eae6f8;
+  font-style: italic;
+  font-weight: 500;
+  padding: 100px 60px; /* creates spacing inside the scroll */
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(80, 0, 150, 0.6);
+  max-width: 600px;
+  height: auto;
+  background-origin: content-box;
+  background-clip: padding-box;
+  overflow: hidden;
+}
   </style>
 </head>
 <body>
