@@ -6,7 +6,7 @@
   <style>
     body {
       margin: 0;
-      background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/baground.jpg');
+      background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/baground.jpg'); /* Your custom background */
       background-size: cover;
       background-attachment: fixed;
       font-family: 'Georgia', serif;
@@ -65,7 +65,7 @@
       max-width: 700px;
       z-index: 10;
       padding: 40px;
-      background-image: url('https://i.imgur.com/LwrmhF1.png'); /* scroll texture */
+      background-color: #fff8ec;
       background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
@@ -84,39 +84,60 @@
       color: #5c3c2d;
       cursor: pointer;
     }
+
+    /* 🎯 Special scroll style for The Reaper */
+    #reaper {
+      background-image: url('https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/reaper-scroll.png'); /* replace with your actual scroll image */
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      color: #eae6f8;
+      font-style: italic;
+      font-weight: 500;
+      padding: 60px 40px;
+      border-radius: 30px;
+      box-shadow: 0 0 25px rgba(80,0,150,0.6);
+    }
   </style>
 </head>
 <body>
   <h1>📚 Scrolls of Wild Rose 📚</h1>
-  <p style="font-size:1.2em;">Click a book to read what fate already wrote about you... 🕯️</p>
+  <p style="font-size:1.2em;">Click a book to reveal what fate has written just for you... 🕯️</p>
 
   <div class="shelf">
+    <!-- 📖 The Reaper -->
     <div>
       <img src="https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/the-reaper.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
-      <!-- 👆 Replace with your real GitHub raw link -->
       <p class="title">🖤 <strong>The Reaper</strong><br><em>(Dark Verse #2)</em></p>
     </div>
 
+    <!-- 🔥 Nightfall -->
     <div>
       <img src="https://raw.githubusercontent.com/KunchanapalliDivyasree/library-of-us/main/Nightfall.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
-      <!-- 👆 Replace with your real GitHub raw link -->
       <p class="title">🔥 <strong>Nightfall</strong><br><em>(Devil's Night #4)</em></p>
     </div>
   </div>
 
-  <!-- Scroll Popups -->
+  <!-- 🖤 The Reaper Scroll -->
   <div id="reaper" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
     <h2>🖤 The Reaper</h2>
-    <p>She is the one who watches over others when no one’s looking. 🫶 Quiet. Loyal. Strong. A protector, not with weapons — but with presence.</p>
+    <p>She is the one who watches over others when no one’s looking. 🫶  
+    Quiet. Loyal. Strong.  
+    A protector — not with weapons, but with presence.  
+    Asma, you are the storm’s calm and its soul. ⚡</p>
   </div>
 
+  <!-- 🔥 Nightfall Scroll (basic for now, we’ll style next) -->
   <div id="nightfall" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
     <h2>🔥 Nightfall</h2>
-    <p>In the dark corners of rebellion, she walks with purpose. Her silence holds power, her heart holds storms, and her loyalty burns brighter than any fire. Asma, you are the calm and the chaos. 🖤🔥</p>
+    <p>In the dark corners of rebellion, she walks with purpose.  
+    Her silence holds power. Her heart holds storms.  
+    Asma, you are the calm and the chaos. 🕯️</p>
   </div>
 
+  <!-- 💡 Scroll script -->
   <script>
     function showScroll(id) {
       document.getElementById(id).style.display = 'block';
