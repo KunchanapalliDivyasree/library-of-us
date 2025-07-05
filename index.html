@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>The Library of Us</title>
+  <style>
+    body {
+      background-color: #f5efe6;
+      font-family: 'Georgia', serif;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      color: #5e3023;
+      margin-top: 30px;
+    }
+    .shelf {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 50px;
+    }
+    .book {
+      background-color: #a47148;
+      color: #fff;
+      padding: 30px 20px;
+      width: 100px;
+      height: 150px;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.3s;
+      box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+    }
+    .book:hover {
+      background-color: #824c35;
+      transform: scale(1.05);
+    }
+    .footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>📚 The Library of Us 📚</h1>
+  <p>Click each book to open a little memory...</p>
+
+  <div class="shelf">
+    <div class="book" onclick="showMessage('Book 1', 'Remember the time we stayed up talking about Percy Jackson till 2 AM?')">Book 1</div>
+    <div class="book" onclick="showMessage('Book 2', 'You gave me your last piece of chocolate, and I knew that was love.')">Book 2</div>
+    <div class="book" onclick="showMessage('Book 3', 'Hot chai. Cold night. Two nerds under one blanket.')">Book 3</div>
+    <div class="book" onclick="showMessage('Book 4', 'When you cried over that one fictional death, I cried for you.')">Book 4</div>
+  </div>
+
+  <div class="footer">Made with love by Vivi for Wild Rose 🌹</div>
+
+  <script>
+    function showMessage(title, message) {
+      alert(`${title}\n\n${message}`);
+    }
+  </script>
+
+</body>
+</html>
