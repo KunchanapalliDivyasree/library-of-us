@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>📖🌹 The Secret Library of Wild Rose</title>
+  <title>📖🌹 The Secret Library of Wild Rose — Only She Holds the Key ✨🔐</title>
   <style>
     body {
       margin: 0;
@@ -15,12 +15,12 @@
     }
 
     h1 {
-      font-size: 2.6em;
+      font-size: 2.5em;
       margin-top: 30px;
-      text-shadow: 2px 2px 4px #f5f5f5;
+      text-shadow: 1px 1px 4px #fff3ea;
     }
 
-    p.intro {
+    p.description {
       font-size: 1.2em;
       margin-bottom: 40px;
     }
@@ -28,162 +28,168 @@
     .book-row {
       display: flex;
       justify-content: center;
-      align-items: center;
       margin-bottom: 40px;
     }
 
+    .book-container {
+      text-align: center;
+    }
+
     .book {
-      width: 140px;
-      height: 200px;
+      width: 150px;
+      height: 220px;
       object-fit: cover;
       border-radius: 8px;
-      transition: transform 0.3s ease-in-out;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.3);
+      transition: transform 0.3s ease;
       cursor: pointer;
-      border: 2px solid #000;
     }
 
     .book:hover {
       transform: scale(1.05);
     }
 
-    /* Glow Colors */
-    .glow-purple { box-shadow: 0 0 20px 4px rgba(128, 0, 128, 0.6); }
-    .glow-gray   { box-shadow: 0 0 20px 4px rgba(169,169,169,0.6); }
-    .glow-gold   { box-shadow: 0 0 20px 4px rgba(255, 215, 0, 0.6); }
-    .glow-red    { box-shadow: 0 0 20px 4px rgba(139, 0, 0, 0.6); }
-    .glow-blue   { box-shadow: 0 0 20px 4px rgba(0, 0, 255, 0.6); }
-    .glow-green  { box-shadow: 0 0 20px 4px rgba(0, 128, 0, 0.6); }
-    .glow-teal   { box-shadow: 0 0 20px 4px rgba(0, 128, 128, 0.6); }
+    .title {
+      margin-top: 10px;
+      font-size: 1em;
+    }
 
-    /* Scroll popup */
     .scroll-popup {
       display: none;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 600px;
-      background-image: url('reaper-scroll.png');
-      background-size: cover;
-      background-position: center;
-      padding: 40px 30px;
-      z-index: 1000;
-      color: #fff0f0;
-      font-style: italic;
-      font-size: 1.2em;
-      line-height: 1.8;
+      z-index: 10;
       border-radius: 20px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.6);
+      width: 90vw;
+      max-width: 800px;
+      max-height: 90vh;
+      background: #000;
+      box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .scroll-popup img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
     }
 
     .close-btn {
       position: absolute;
       top: 10px;
       right: 20px;
-      font-size: 1.5em;
+      font-size: 1.8em;
+      color: white;
       cursor: pointer;
-      color: #fff;
+      z-index: 20;
     }
 
-    /* Lock animation */
-    #lock {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2000;
-      font-size: 80px;
-      color: #862d86;
-      animation: bounce 0.6s ease;
-    }
+    @media (max-width: 600px) {
+      .book {
+        width: 100px;
+        height: 150px;
+      }
 
-    @keyframes bounce {
-      0% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
-      50% { transform: translate(-50%, -60%) scale(1.2); opacity: 1; }
-      100% { transform: translate(-50%, -50%) scale(1); opacity: 0; }
-    }
-
-    @media(max-width: 768px){
-      .scroll-popup {
-        width: 90vw;
-        padding: 20px;
+      .title {
+        font-size: 0.9em;
       }
     }
   </style>
 </head>
 <body>
-
   <h1>📖🌹 The Secret Library of Wild Rose — Only She Holds the Key ✨🔐</h1>
-  <p class="intro">📜 The words won't speak to anyone else... they were written in her name. 🕯️🌹</p>
+  <p class="description">📜 The words won't speak to anyone else... they were written in her name. 🕯️🌹</p>
 
-  <!-- Book Rows -->
+  <!-- BOOK ROWS -->
   <div class="book-row">
-    <img src="the-reaper.jpg" alt="The Reaper" class="book glow-purple" onclick="showScroll('reaper')">
-  </div>
-  <div class="book-row">
-    <img src="Nightfall.jpg" alt="Nightfall" class="book glow-gray" onclick="showScroll('nightfall')">
-  </div>
-  <div class="book-row">
-    <img src="Kingdom of Ash Cover.jpeg" alt="Kingdom of Ash" class="book glow-gold" onclick="showScroll('koa')">
-  </div>
-  <div class="book-row">
-    <img src="God of wrath.jpg" alt="God of Wrath" class="book glow-red" onclick="showScroll('gowrath')">
-  </div>
-  <div class="book-row">
-    <img src="God of ruin.jpg" alt="God of Ruin" class="book glow-blue" onclick="showScroll('goruin')">
-  </div>
-  <div class="book-row">
-    <img src="Twisted lies.jpg" alt="Twisted Lies" class="book glow-green" onclick="showScroll('twisted')">
-  </div>
-  <div class="book-row">
-    <img src="Imagine me.jpg" alt="Imagine Me" class="book glow-teal" onclick="showScroll('imagine')">
+    <div class="book-container">
+      <img src="the-reaper.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper" />
+      <p class="title">🖤 The Reaper</p>
+    </div>
   </div>
 
-  <!-- Lock Animation -->
-  <div id="lock">🔐</div>
+  <div class="book-row">
+    <div class="book-container">
+      <img src="Nightfall.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall" />
+      <p class="title">🔥 Nightfall</p>
+    </div>
+  </div>
 
-  <!-- Scroll Popups -->
+  <div class="book-row">
+    <div class="book-container">
+      <img src="Kingdom of Ash Cover.jpeg" class="book" onclick="showScroll('koa')" alt="Kingdom of Ash" />
+      <p class="title">👑 Kingdom of Ash</p>
+    </div>
+  </div>
+
+  <div class="book-row">
+    <div class="book-container">
+      <img src="God of wrath.jpg" class="book" onclick="showScroll('gowrath')" alt="God of Wrath" />
+      <p class="title">⚔️ God of Wrath</p>
+    </div>
+  </div>
+
+  <div class="book-row">
+    <div class="book-container">
+      <img src="God of ruin.jpg" class="book" onclick="showScroll('goruin')" alt="God of Ruin" />
+      <p class="title">💥 God of Ruin</p>
+    </div>
+  </div>
+
+  <div class="book-row">
+    <div class="book-container">
+      <img src="Twisted lies.jpg" class="book" onclick="showScroll('twisted')" alt="Twisted Lies" />
+      <p class="title">💚 Twisted Lies</p>
+    </div>
+  </div>
+
+  <div class="book-row">
+    <div class="book-container">
+      <img src="Imagine me.jpg" class="book" onclick="showScroll('imagine')" alt="Imagine Me" />
+      <p class="title">✨ Imagine Me</p>
+    </div>
+  </div>
+
+  <!-- SCROLL POPUPS -->
   <div id="reaper" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
-    The calm in chaos. Fierce yet forgiving. Her heart is the blade that never misses. ⚡
+    <img src="scroll-reaper.png" alt="Scroll for The Reaper" />
   </div>
+
   <div id="nightfall" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
-    In shadows where others hide, she rises. A chandelier in the dark. Cold on the outside, fire within. 🖤
+    <img src="scroll-nightfall.png" alt="Scroll for Nightfall" />
   </div>
+
   <div id="koa" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('koa')">&times;</span>
-    Forged in fire, rising from ashes. She is the queen of survival, the ruler of ruin. 👑
+    <img src="scroll-koa.png" alt="Scroll for Kingdom of Ash" />
   </div>
+
   <div id="gowrath" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('gowrath')">&times;</span>
-    Anger is not her weakness — it’s her weapon. She speaks in storms and reigns in silence. ⚔️
+    <img src="scroll-gowrath.png" alt="Scroll for God of Wrath" />
   </div>
+
   <div id="goruin" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('goruin')">&times;</span>
-    Ruin isn’t her ending — it’s her origin. She builds from broken bones and dances in the fall. 💥
+    <img src="scroll-goruin.png" alt="Scroll for God of Ruin" />
   </div>
+
   <div id="twisted" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('twisted')">&times;</span>
-    Secrets woven in silk, truth wrapped in charm. In twisted fates, she is the constant. 💚
+    <img src="scroll-twisted.png" alt="Scroll for Twisted Lies" />
   </div>
+
   <div id="imagine" class="scroll-popup">
     <span class="close-btn" onclick="hideScroll('imagine')">&times;</span>
-    She was told she was broken — yet here she is, blooming. The story they feared would be told. ✨
+    <img src="scroll-imagine.png" alt="Scroll for Imagine Me" />
   </div>
 
-  <!-- Script -->
   <script>
     function showScroll(id) {
-      const lock = document.getElementById("lock");
-      lock.style.display = "block";
-      lock.style.animation = "bounce 0.6s ease";
-
-      setTimeout(() => {
-        lock.style.display = "none";
-        document.getElementById(id).style.display = 'block';
-      }, 700);
+      document.getElementById(id).style.display = 'block';
     }
 
     function hideScroll(id) {
