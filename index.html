@@ -2,67 +2,112 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>The Library of Us</title>
+  <title>Scrolls of Wild Rose</title>
   <style>
     body {
-      background-color: #f5efe6;
+      background-color: #fefbf6;
       font-family: 'Georgia', serif;
       text-align: center;
-      margin: 0;
-      padding: 20px;
+      padding: 30px;
+      color: #3e2f2c;
     }
+
     h1 {
-      color: #5e3023;
-      margin-top: 30px;
+      font-size: 2.5em;
+      margin-bottom: 10px;
     }
+
     .shelf {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 30px;
-      margin-top: 50px;
+      gap: 20px;
+      margin-top: 40px;
     }
+
     .book {
-      background-color: #a47148;
-      color: #fff;
-      padding: 30px 20px;
-      width: 100px;
-      height: 150px;
-      border-radius: 10px;
+      width: 120px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
       cursor: pointer;
-      transition: all 0.3s;
-      box-shadow: 4px 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
+
     .book:hover {
-      background-color: #824c35;
       transform: scale(1.05);
     }
-    .footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #777;
+
+    .scroll-popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 85%;
+      max-width: 600px;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      z-index: 10;
     }
+
+    .scroll-popup .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 1.5em;
+      cursor: pointer;
+    }
+
+    /* Individual Book Themes */
+
+    #reaper {
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: #e0e0e0;
+      border: 4px solid #555;
+      font-style: italic;
+    }
+
+    #nightfall {
+      background: linear-gradient(135deg, #3c0202, #000000);
+      color: #ffcccb;
+      border: 4px double crimson;
+      font-family: 'Courier New', monospace;
+    }
+
   </style>
 </head>
 <body>
-
-  <h1>📚 The Library of Us 📚</h1>
-  <p>Click each book to open a little memory...</p>
+  <h1>📜 Scrolls of Wild Rose 📜</h1>
+  <p>Click a book to reveal what the stars already wrote about you…</p>
 
   <div class="shelf">
-    <div class="book" onclick="showMessage('Book 1', 'Remember the time we stayed up talking about Percy Jackson till 2 AM?')">Book 1</div>
-    <div class="book" onclick="showMessage('Book 2', 'You gave me your last piece of chocolate, and I knew that was love.')">Book 2</div>
-    <div class="book" onclick="showMessage('Book 3', 'Hot chai. Cold night. Two nerds under one blanket.')">Book 3</div>
-    <div class="book" onclick="showMessage('Book 4', 'When you cried over that one fictional death, I cried for you.')">Book 4</div>
+    <img src="https://i.imgur.com/xIVl0sP.jpeg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
+    <img src="https://i.imgur.com/zqgQeDo.jpeg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
   </div>
 
-  <div class="footer">Made with love by Vivi for Wild Rose 🌹</div>
+  <!-- Scroll Popups -->
+  <div id="reaper" class="scroll-popup">
+    <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
+    <h2><em>The Reaper</em></h2>
+    <p>She is the one who watches over others when no one’s looking. Quiet. Loyal. Strong. A protector, not with weapons — but with presence.</p>
+  </div>
+
+  <div id="nightfall" class="scroll-popup">
+    <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
+    <h2><em>Nightfall</em></h2>
+    <p>She’s fire in a world that keeps asking women to be small. She speaks when it matters, stands when others flee, and never apologizes for burning bright.</p>
+  </div>
 
   <script>
-    function showMessage(title, message) {
-      alert(`${title}\n\n${message}`);
+    function showScroll(id) {
+      document.getElementById(id).style.display = 'block';
+    }
+    function hideScroll(id) {
+      document.getElementById(id).style.display = 'none';
     }
   </script>
-
 </body>
 </html>
