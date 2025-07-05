@@ -21,22 +21,22 @@
       text-shadow: 1px 1px 4px #fff3ea;
     }
 
-    .shelf {
+    .book-row {
       display: flex;
-      flex-direction: column;
+      justify-content: center;
       align-items: center;
-      gap: 40px;
-      margin-top: 40px;
-      padding: 0 20px;
+      margin: 30px 0;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
-    .shelf div {
+    .book-block {
       text-align: center;
     }
 
     .book {
-      width: 140px;
-      height: 200px;
+      width: 120px;
+      height: 180px;
       object-fit: cover;
       border: 2px solid #3b2a1a;
       border-radius: 6px;
@@ -50,7 +50,7 @@
     }
 
     .title {
-      font-size: 1em;
+      font-size: 0.9em;
       margin-top: 10px;
       color: #4d2e2e;
     }
@@ -61,14 +61,13 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      z-index: 10;
-      padding: 0;
-      border-radius: 20px;
+      z-index: 100;
       width: 600px;
       height: 450px;
       background-size: cover;
       background-repeat: no-repeat;
       background-position: center;
+      display: none;
       justify-content: center;
       align-items: center;
       box-shadow: 0 0 25px rgba(0, 0, 0, 0.6);
@@ -98,32 +97,42 @@
       z-index: 20;
     }
 
-    /* Floating Flower Animation */
-    .floating-flower {
-      position: fixed;
-      width: 40px;
-      height: 40px;
-      background-image: url('petal.webp');
-      background-size: contain;
-      background-repeat: no-repeat;
-      animation: floatAnim linear infinite;
+    /* Floating Petals */
+    .petal-container {
       pointer-events: none;
-      z-index: 2;
-      opacity: 0.8;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: 1;
     }
 
-    @keyframes floatAnim {
+    .petal {
+      position: absolute;
+      top: -50px;
+      width: 25px;
+      height: 25px;
+      background-image: url('petal.webp');
+      background-size: cover;
+      background-repeat: no-repeat;
+      opacity: 0.8;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
       0% {
-        transform: translateY(0) translateX(0) rotate(0deg);
-        opacity: 0.6;
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
       }
       100% {
-        transform: translateY(-30vh) translateX(100vw) rotate(360deg);
+        transform: translateY(100vh) rotate(360deg);
         opacity: 0;
       }
     }
 
-    @media (max-width: 650px) {
+    @media (max-width: 700px) {
       .scroll-popup {
         width: 90vw;
         height: auto;
@@ -137,69 +146,74 @@
   </style>
 </head>
 <body>
+
   <h1>📚 Scrolls of Wild Rose 📚</h1>
   <p style="font-size:1.2em;">Click a book to reveal what fate has written just for you... 🕯️</p>
 
-  <div class="shelf">
-    <div><img src="the-reaper.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper"><p class="title">🖤 The Reaper</p></div>
-    <div><img src="Nightfall.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall"><p class="title">🔥 Nightfall</p></div>
-    <div><img src="Kingdom of Ash Cover.jpeg" class="book" onclick="showScroll('koa')" alt="Kingdom of Ash"><p class="title">👑 Kingdom of Ash</p></div>
-    <div><img src="God of wrath.jpg" class="book" onclick="showScroll('gowrath')" alt="God of Wrath"><p class="title">⚔️ God of Wrath</p></div>
-    <div><img src="God of ruin.jpg" class="book" onclick="showScroll('goruin')" alt="God of Ruin"><p class="title">💥 God of Ruin</p></div>
-    <div><img src="Twisted lies.jpg" class="book" onclick="showScroll('twisted')" alt="Twisted Lies"><p class="title">💚 Twisted Lies</p></div>
-    <div><img src="Imagine me.jpg" class="book" onclick="showScroll('imagine')" alt="Imagine Me"><p class="title">✨ Imagine Me</p></div>
+  <div class="book-row">
+    <div class="book-block"><img src="the-reaper.jpg" class="book" onclick="showScroll('reaper')"><p class="title">🖤 The Reaper</p></div>
+    <div class="book-block"><img src="Nightfall.jpg" class="book" onclick="showScroll('nightfall')"><p class="title">🔥 Nightfall</p></div>
+    <div class="book-block"><img src="Kingdom of Ash Cover.jpeg" class="book" onclick="showScroll('koa')"><p class="title">👑 Kingdom of Ash</p></div>
+    <div class="book-block"><img src="God of wrath.jpg" class="book" onclick="showScroll('gowrath')"><p class="title">⚔️ God of Wrath</p></div>
+    <div class="book-block"><img src="God of ruin.jpg" class="book" onclick="showScroll('goruin')"><p class="title">💥 God of Ruin</p></div>
+    <div class="book-block"><img src="Twisted lies.jpg" class="book" onclick="showScroll('twisted')"><p class="title">💚 Twisted Lies</p></div>
+    <div class="book-block"><img src="Imagine me.jpg" class="book" onclick="showScroll('imagine')"><p class="title">✨ Imagine Me</p></div>
   </div>
 
   <!-- Scrolls -->
   <div id="reaper" class="scroll-popup" style="background-image:url('reaper-scroll.png');">
     <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
     <div class="scroll-text">
-      <p>The calm in chaos. Fierce yet forgiving — protector of shattered edges.<br>In the darkest verses, her voice is poetry, her heart the blade that never misses.<br>A storm that heals, not harms. ⚡</p>
+      <p>The calm in chaos.<br>Fierce yet forgiving — protector of shattered edges.<br>In the darkest verses, her voice is poetry, her heart the blade that never misses.<br>A storm that heals, not harms. ⚡</p>
     </div>
   </div>
 
   <div id="nightfall" class="scroll-popup" style="background-image:url('nightfall-scroll.png');">
     <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
     <div class="scroll-text">
-      <p>In shadows where others hide, she rises. 🕯️<br>A presence that commands like a chandelier in the dark.<br>Cold on the outside, fire within. The silence after screams — powerful, beautiful, unshaken.</p>
+      <p>In shadows where others hide, she rises. 🕯️<br>A presence that commands like a chandelier in the dark.<br>Cold on the outside, fire within.<br>The silence after screams — powerful, beautiful, unshaken. 🖤</p>
     </div>
   </div>
 
   <div id="koa" class="scroll-popup" style="background-image:url('koa-scroll.png');">
     <span class="close-btn" onclick="hideScroll('koa')">&times;</span>
     <div class="scroll-text">
-      <p>Forged in fire, rising from ashes. She is the queen of survival, the ruler of ruin.<br>A heart tempered by trials, and wings woven from war. She doesn't break. She becomes gold. 👑</p>
+      <p>Forged in fire, rising from ashes.<br>She is the queen of survival, the ruler of ruin.<br>A heart tempered by trials, and wings woven from war.<br>She doesn't break. She becomes gold. 👑</p>
     </div>
   </div>
 
   <div id="gowrath" class="scroll-popup" style="background-image:url('gowrath-scroll.png');">
     <span class="close-btn" onclick="hideScroll('gowrath')">&times;</span>
     <div class="scroll-text">
-      <p>Anger is not her weakness — it’s her weapon. She speaks in storms and reigns in silence.<br>Every boundary she breaks becomes a kingdom rebuilt. Wrath becomes her glory. ⚔️</p>
+      <p>Anger is not her weakness — it’s her weapon.<br>She speaks in storms and reigns in silence.<br>Every boundary she breaks becomes a kingdom rebuilt.<br>Wrath becomes her glory. ⚔️</p>
     </div>
   </div>
 
   <div id="goruin" class="scroll-popup" style="background-image:url('goruin-scroll.png');">
     <span class="close-btn" onclick="hideScroll('goruin')">&times;</span>
     <div class="scroll-text">
-      <p>Ruin isn’t her ending — it’s her origin. She builds from broken bones, dances in the fall.<br>She is the fall and the rise, the pain and the crown. Ruin bows to her resolve. 💥</p>
+      <p>Ruin isn’t her ending — it’s her origin.<br>She builds from broken bones, dances in the fall.<br>She is the fall and the rise, the pain and the crown.<br>Ruin bows to her resolve. 💥</p>
     </div>
   </div>
 
   <div id="twisted" class="scroll-popup" style="background-image:url('twisted-scroll.png');">
     <span class="close-btn" onclick="hideScroll('twisted')">&times;</span>
     <div class="scroll-text">
-      <p>She is both softness and steel. Secrets woven in silk, truth wrapped in charm.<br>In a world of twisted fates, she is the constant. The lie that turns into loyalty. 💚</p>
+      <p>She is both softness and steel.<br>Secrets woven in silk, truth wrapped in charm.<br>In a world of twisted fates, she is the constant.<br>The lie that turns into loyalty. 💚</p>
     </div>
   </div>
 
   <div id="imagine" class="scroll-popup" style="background-image:url('imagine-scroll.png');">
     <span class="close-btn" onclick="hideScroll('imagine')">&times;</span>
     <div class="scroll-text">
-      <p>She was told she was broken — yet here she is, blooming. Power in her pulse, rebellion in her breath.<br>Not imagined, but real. Not hidden, but rising. The story they feared would be told. ✨</p>
+      <p>She was told she was broken — yet here she is, blooming.<br>Power in her pulse, rebellion in her breath.<br>Not imagined, but real. Not hidden, but rising.<br>The story they feared would be told. ✨</p>
     </div>
   </div>
 
+  <!-- Floating Petals Container -->
+  <div class="petal-container"></div>
+
+  <!-- Scripts -->
   <script>
     function showScroll(id) {
       document.getElementById(id).style.display = 'flex';
@@ -209,19 +223,16 @@
       document.getElementById(id).style.display = 'none';
     }
 
-    // Floating flower animation
-    function createFloatingFlower() {
-      const flower = document.createElement('div');
-      flower.classList.add('floating-flower');
-      flower.style.top = Math.random() * window.innerHeight + 'px';
-      flower.style.left = '-50px';
-      flower.style.animationDuration = (Math.random() * 10 + 10) + 's';
-      document.body.appendChild(flower);
-
-      setTimeout(() => flower.remove(), 20000);
+    // Petal animation logic
+    const container = document.querySelector('.petal-container');
+    for (let i = 0; i < 25; i++) {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = `${Math.random() * 100}vw`;
+      petal.style.animationDuration = `${5 + Math.random() * 5}s`;
+      petal.style.animationDelay = `${Math.random() * 5}s`;
+      container.appendChild(petal);
     }
-
-    setInterval(createFloatingFlower, 1500);
   </script>
 </body>
 </html>
