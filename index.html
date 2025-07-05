@@ -2,27 +2,31 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>📚 Scrolls of Wild Rose</title>
+  <title>Scrolls of Wild Rose 🌹</title>
   <style>
     body {
-      background-color: #fefafe;
+      margin: 0;
+      background-image: url('https://i.imgur.com/VBGCxOO.jpg'); /* parchment textured bg */
+      background-size: cover;
+      background-attachment: fixed;
       font-family: 'Georgia', serif;
+      color: #3b2a1a;
       text-align: center;
-      padding: 30px;
-      color: #4c2c4c;
     }
 
     h1 {
-      font-size: 2.8em;
-      margin-bottom: 5px;
+      font-size: 3em;
+      margin-top: 30px;
+      text-shadow: 1px 1px 4px #fff3ea;
     }
 
     .shelf {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 25px;
+      gap: 30px;
       margin-top: 40px;
+      padding: 0 20px;
     }
 
     .shelf div {
@@ -30,83 +34,74 @@
       width: 140px;
     }
 
-    .shelf p {
-      margin-top: 8px;
-      font-size: 0.95em;
-      color: #5e3c5e;
-    }
-
     .book {
       width: 120px;
       height: 180px;
       object-fit: cover;
-      border-radius: 8px;
+      border: 2px solid #3b2a1a;
+      border-radius: 6px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s;
       cursor: pointer;
-      transition: transform 0.3s ease;
-      box-shadow: 0 4px 12px rgba(80, 20, 80, 0.2);
     }
 
     .book:hover {
       transform: scale(1.05);
     }
 
+    .title {
+      font-size: 0.95em;
+      margin-top: 10px;
+    }
+
+    /* Popup scroll base */
     .scroll-popup {
       display: none;
       position: fixed;
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      width: 85%;
-      max-width: 600px;
-      padding: 40px 30px;
-      border-radius: 20px;
-      box-shadow: 0 0 20px rgba(0,0,0,0.3);
+      width: 90%;
+      max-width: 700px;
       z-index: 10;
-      font-size: 1.15em;
-      background: linear-gradient(to bottom right, #e8d4f3, #f5ebff);
-      border: 5px double #b690d9;
-      color: #3a2446;
+      padding: 40px;
+      background-image: url('https://i.imgur.com/LwrmhF1.png'); /* parchment scroll image */
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      color: #3b2a1a;
+      font-size: 1.1em;
       font-style: italic;
+      box-shadow: 0 0 20px rgba(0,0,0,0.4);
     }
 
     .scroll-popup .close-btn {
       position: absolute;
-      top: 10px;
-      right: 20px;
-      font-size: 1.5em;
+      top: 20px;
+      right: 40px;
+      font-size: 1.8em;
+      color: #5c3c2d;
       cursor: pointer;
-      color: #693c8c;
     }
 
   </style>
 </head>
 <body>
   <h1>📜 Scrolls of Wild Rose 📜</h1>
-  <p style="font-size:1.2em;">Click a book to reveal the truth the stars wrote about you… 🌌📖</p>
+  <p style="font-size:1.2em;">Click a book to read what fate already wrote about you... 🕯️</p>
 
   <div class="shelf">
     <div>
-      <img src="https://i.imgur.com/xIVl0sP.jpeg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
-      <p><strong>🖤 The Reaper</strong><br><em>(Dark Verse #2)</em></p>
+      <img src="https://m.media-amazon.com/images/I/51Ck3Y-YrBL.jpg" class="book" onclick="showScroll('reaper')" alt="The Reaper">
+      <p class="title">🖤 <strong>The Reaper</strong><br><em>(Dark Verse #2)</em></p>
     </div>
     <div>
-      <img src="https://i.imgur.com/zqgQeDo.jpeg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
-      <p><strong>🔥 Nightfall</strong><br><em>(Devil’s Night #4)</em></p>
+      <img src="https://m.media-amazon.com/images/I/71Sw3V+6m3L.jpg" class="book" onclick="showScroll('nightfall')" alt="Nightfall">
+      <p class="title">🔥 <strong>Nightfall</strong><br><em>(Devil’s Night #4)</em></p>
     </div>
   </div>
 
-  <!-- Scroll Popups -->
-  <div id="reaper" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('reaper')">&times;</span>
-    <h2><em>🖤 The Reaper</em></h2>
-    <p>She is the one who watches over others when no one’s looking. 🫶 Quiet. Loyal. Strong. A protector, not with weapons — but with presence.</p>
-  </div>
-
-  <div id="nightfall" class="scroll-popup">
-    <span class="close-btn" onclick="hideScroll('nightfall')">&times;</span>
-    <h2><em>🔥 Nightfall</em></h2>
-    <p>She’s fire in a world that keeps asking women to be small. 🔥 She speaks when it matters, stands when others flee, and never apologizes for burning bright. 💃</p>
-  </div>
+  <!-- Placeholder for future scroll popups -->
 
   <script>
     function showScroll(id) {
@@ -118,3 +113,4 @@
   </script>
 </body>
 </html>
+
